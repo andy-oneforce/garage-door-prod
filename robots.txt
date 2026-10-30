@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lwdoorservice.com/sitemap.xml
