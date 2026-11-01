@@ -302,15 +302,23 @@
     </aside>
     <aside id="contact" class="hero-form-wrap" aria-labelledby="est-h">
       <h2 id="est-h" class="h3">Fill out our contact form</h2>
-      <p class="form-sub">Tell us what the door is doing and we'll call you back.</p>
+      <p class="form-sub" id="form-sub">Tell us what the door is doing and we'll call you back.</p>
       <form class="form-card hero-form" id="estimate-form" novalidate>
       <div class="field">
-        <label for="name">Name <span aria-hidden="true">*</span></label>
+        <label for="name">Full Name <span aria-hidden="true">*</span></label>
         <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email Address <span aria-hidden="true">*</span></label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
       </div>
       <div class="field">
         <label for="phone">Phone <span aria-hidden="true">*</span></label>
         <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+      </div>
+      <div class="field">
+        <label for="address">Street Address <span aria-hidden="true">*</span></label>
+        <input id="address" name="address" type="text" autocomplete="street-address" required>
       </div>
       <div class="field">
         <label for="zip">City / ZIP <span aria-hidden="true">*</span></label>
@@ -387,7 +395,7 @@
     btn.disabled = true; btn.textContent = 'Sending\u2026'; status.textContent = '';
     // no-cors: Apps Script returns no CORS headers; the row and email are done server-side when fetch resolves.
     fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body: data })
-      .then(function () { form.hidden = true; var ok = document.getElementById('form-done'); ok.hidden = false; ok.focus(); })
+      .then(function () { form.hidden = true; document.getElementById('est-h').hidden = true; document.getElementById('form-sub').hidden = true; var ok = document.getElementById('form-done'); ok.hidden = false; ok.focus(); })
       .catch(function () {
         status.textContent = 'Something went wrong sending your request. Please call 425-301-7543.';
         btn.disabled = false; btn.textContent = label;

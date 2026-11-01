@@ -369,6 +369,7 @@ section { padding: clamp(2rem, 5vw, 3.2rem) 0; }
 .contact-one .reach p { margin-bottom: .4rem; overflow-wrap: anywhere; }
 .form-done { margin-bottom: 1rem; }
 .form-done[hidden] { display: none; }
+.hero-form-wrap [hidden] { display: none; }
 .field input, .field select, .field textarea { font-size: 16px; min-height: 48px; }
 .callbar { display: none; }
 @media (max-width: 820px) {
