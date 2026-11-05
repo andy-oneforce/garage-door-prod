@@ -320,9 +320,15 @@
         <label for="address">Street Address <span aria-hidden="true">*</span></label>
         <input id="address" name="address" type="text" autocomplete="street-address" required>
       </div>
-      <div class="field">
-        <label for="zip">City / ZIP <span aria-hidden="true">*</span></label>
-        <input id="zip" name="zip" type="text" autocomplete="postal-code" required>
+      <div class="field-row">
+        <div class="field">
+          <label for="city">City <span aria-hidden="true">*</span></label>
+          <input id="city" name="city" type="text" autocomplete="address-level2" required>
+        </div>
+        <div class="field">
+          <label for="zip">ZIP <span aria-hidden="true">*</span></label>
+          <input id="zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" required>
+        </div>
       </div>
       <div class="field">
         <label for="service">What do you need?</label>
@@ -332,6 +338,11 @@
         <label for="msg">What's the door doing? (optional)</label>
         <textarea id="msg" name="message" rows="2"></textarea>
       </div>
+      <div class="hp-field" aria-hidden="true">
+        <label for="bot-field">Leave this empty</label>
+        <input id="bot-field" name="bot-field" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" id="loaded_at" name="loaded_at" value="">
       <div class="field consent">
         <label class="check" for="sms_consent"><input id="sms_consent" name="sms_consent" type="checkbox" value="Yes" checked> <span>I agree to receive text messages</span></label>
       </div>
@@ -383,6 +394,7 @@
   var form = document.getElementById('estimate-form');
   if (!form) return;
   var status = document.getElementById('form-status');
+  var loadedAt = document.getElementById('loaded_at'); if (loadedAt) loadedAt.value = String(Date.now());
   var btn = form.querySelector('button[type="submit"]');
   var label = btn.textContent;
   form.addEventListener('submit', function (e) {

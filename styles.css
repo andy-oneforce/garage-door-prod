@@ -484,3 +484,9 @@ html { scroll-behavior: smooth; }
 .stat-yelp:hover .lbl { text-decoration: underline; }
 @media (min-width: 860px) { .split-area { grid-template-columns: 1fr 1fr; align-items: center; } .split-form { grid-template-columns: 1fr 1.2fr; align-items: start; } }
 .split-area .area-maps .area-map img { max-width: 100%; }
+
+/* Form: City + ZIP side by side; honeypot kept off-screen (not display:none) */
+.field-row { display: grid; grid-template-columns: 1fr 9rem; gap: .65rem; }
+.field-row .field { min-width: 0; }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 480px) { .field-row { grid-template-columns: 1fr 7rem; gap: .45rem; } }
